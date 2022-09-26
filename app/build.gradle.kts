@@ -41,9 +41,9 @@ dependencies {
 
 application {
     // Define the main class for the application.
-    mainClass.set("AppKt")
+    mainClass.set("MinesweeperKt")
     // Set name of 'installDist' artifacts
-    applicationName = "nix-kt-template"
+    applicationName = "minesweeper"
 }
 
 graalvmNative {
@@ -52,7 +52,7 @@ graalvmNative {
             // Disable native toolchain checking
             buildArgs.add("-H:-CheckToolchain")
             // Set executable name
-            imageName.set("nix-kt-template")
+            imageName.set("minesweeper")
         }
     }
     // Just use GRAALVM_HOME for finding the GraalVM installation

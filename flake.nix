@@ -36,12 +36,13 @@
             gradleFlags = [ "installDist" ];
             installPhase = ''
               mkdir $out
-              cp -r app/build/install/nix-kt-template/* $out
+              cp -r app/build/install/minesweeper/* $out
             '';
-            pname = "nix-kt-template";
+            pname = "minesweeper";
             src = ./.;
             version = "jvm";
           };
+          # broken due to GraalVM not supporting awt
           native = buildGradle {
             configurePhase = ''
               export GRAALVM_HOME=${graalvm};
@@ -50,10 +51,10 @@
             gradleFlags = [ "nativeCompile" ];
             installPhase = ''
               mkdir -p $out/bin
-              cp app/build/native/nativeCompile/nix-kt-template $out/bin
+              cp app/build/native/nativeCompile/minesweeper $out/bin
             '';
             nativeBuildInputs = [ graalvm ];
-            pname = "nix-kt-template";
+            pname = "minesweeper";
             src = ./.;
             version = "native";
           };
